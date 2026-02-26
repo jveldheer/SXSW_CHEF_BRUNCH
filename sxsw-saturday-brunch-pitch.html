@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SXSW Chef Brunch 2026 | Sponsorship Partnership</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #FFFFFF;
+            --bg-card: #F5F5F5;
+            --bg-elevated: #EBEBEB;
+            --text-primary: #0D0D0D;
+            --text-secondary: #333333;
+            --text-muted: #555555;
+            --accent: #C4501C;
+            --accent-light: #FFF6F2;
+            --border-color: #D0D0D0;
+            --gutter: 1.5rem;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg-color) !important;
+            color: var(--text-primary) !important;
+            font-family: 'Space Mono', monospace;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-primary) !important;
+        }
+
+        .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+        .mono-bold { font-family: 'Space Mono', monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        
+        a { color: var(--text-primary); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--accent); }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 var(--gutter); }
+
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes countPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+                        transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+                        transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+                        transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .logo { 
+            font-size: 0.9rem; 
+            letter-spacing: 1px; 
+            font-weight: 700;
+            color: var(--text-primary) !important;
+            white-space: nowrap;
+        }
+        .logo span { color: var(--accent) !important; }
+        
+        .cta-btn {
+            background: var(--accent);
+            color: #FFFFFF !important;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            border: none;
+            transition: all 0.3s;
+            font-family: 'Space Mono', monospace;
+            cursor: pointer;
+        }
+        .cta-btn:hover { 
+            background: var(--text-primary); 
+            color: #FFFFFF !important; 
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-meta-item {
+            font-size: 0.65rem;
+            color: var(--text-muted) !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeUp 0.7s ease-out both;
+        }
+        .hero-meta-item:nth-child(1) { animation-delay: 0.2s; }
+        .hero-meta-item:nth-child(2) { animation-delay: 0.35s; }
+        .hero-meta-item:nth-child(3) { animation-delay: 0.5s; }
+        .hero-meta-item:nth-child(4) { animation-delay: 0.65s; }
+
+        .hero-meta-item span {
+            display: block;
+            color: var(--text-primary) !important;
+            font-size: 0.85rem;
+            margin-top: 0.35rem;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--text-primary) !important;
+            animation: fadeUp 0.8s ease-out 0.4s both;
+        }
+        
+        .hero-tagline {
+            font-size: 0.8rem;
+            color: var(--text-secondary) !important;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            animation: fadeUp 0.8s ease-out 0.55s both;
+        }
+
+        .hero-desc {
+            color: var(--text-secondary) !important;
+            font-size: 0.95rem;
+            max-width: 650px;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.8s ease-out 0.7s both;
+        }
+
+        .hero-quote {
+            font-size: 1.1rem;
+            color: var(--text-primary) !important;
+            border-left: 4px solid var(--accent);
+            padding-left: 1.25rem;
+            margin: 2rem 0;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            opacity: 0;
+            transform: translateX(-40px);
+            animation: slideInLeft 0.9s ease-out 0.9s forwards;
+        }
+
+        /* Stats */
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .stat-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            color: var(--accent) !important;
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-number.animate {
+            animation: countPulse 0.6s ease-out;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            color: var(--text-secondary) !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary) !important;
+        }
+
+        /* Chef Grid */
+        .chef-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+        }
+
+        .chef-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1rem;
+            transition: border-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .chef-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .chef-name {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-primary) !important;
+        }
+
+        .chef-tag {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent) !important;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .chef-info {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .chef-socials {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+            align-items: center;
+        }
+
+        .chef-socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background: var(--border-color);
+            transition: background 0.2s, transform 0.2s;
+            text-decoration: none;
+        }
+
+        .chef-socials a:hover {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .chef-socials a svg {
+            width: 13px;
+            height: 13px;
+            fill: var(--text-muted);
+            transition: fill 0.2s;
+        }
+
+        .chef-socials a:hover svg {
+            fill: #fff;
+        }
+
+        /* Cards Grid */
+        .grid-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.75rem;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover { 
+            border-color: var(--accent); 
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        
+        .card-number { 
+            color: var(--accent) !important; 
+            font-size: 0.7rem; 
+            margin-bottom: 0.75rem; 
+            display: block;
+            letter-spacing: 2px;
+        }
+        .card h3 { 
+            font-size: 1.5rem; 
+            margin-bottom: 0.75rem;
+            color: var(--text-primary) !important;
+        }
+        .card p { 
+            color: var(--text-secondary) !important; 
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        /* Event Flow */
+        .event-flow {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .event-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            position: relative;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .event-block:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .event-block.featured {
+            background: var(--accent-light);
+            border: 2px solid var(--accent);
+        }
+
+        .event-block.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #E07A4F, var(--accent));
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .event-time {
+            font-size: 0.65rem;
+            color: var(--accent) !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .event-block h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-block > p {
+            color: var(--text-secondary) !important;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .event-detail-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .event-detail-list li {
+            font-size: 0.85rem;
+            color: var(--text-secondary) !important;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .event-detail-list li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--accent) !important;
+            font-weight: 700;
+        }
+
+        .event-detail-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Visual Break */
+        .visual-break {
+            background: var(--text-primary);
+            padding: 3rem var(--gutter);
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-break::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(196,80,28,0.1) 0%, transparent 50%, rgba(196,80,28,0.06) 100%);
+            pointer-events: none;
+        }
+
+        .visual-break h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #FFFFFF !important;
+            position: relative;
+        }
+
+        .visual-break p {
+            color: #CCCCCC !important;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: var(--accent-light);
+            border: 2px solid var(--accent);
+            border-left: 5px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--accent) !important;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary) !important;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+
+        .footer-label {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--text-muted) !important;
+            margin-bottom: 1rem;
+        }
+
+        .footer-cta {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--text-primary) !important;
+            display: block;
+            transition: color 0.3s;
+        }
+        .footer-cta:hover { color: var(--accent) !important; }
+
+        .contact-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-item {
+            color: var(--text-primary) !important;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .contact-item:hover { color: var(--accent) !important; }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: var(--text-muted) !important;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        /* Desktop */
+        @media (min-width: 640px) {
+            .stat-row { grid-template-columns: repeat(4, 1fr); }
+            .grid-section { grid-template-columns: repeat(2, 1fr); }
+            .event-flow { grid-template-columns: repeat(2, 1fr); }
+            .chef-grid { 
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 0.75rem;
+            }
+            .chef-card {
+                flex-direction: row;
+                align-items: center;
+                padding: 1rem 1.25rem;
+            }
+            .chef-info {
+                flex: 1;
+                min-width: 0;
+            }
+            .footer-bottom { flex-direction: row; justify-content: space-between; }
+            .contact-block { flex-direction: row; justify-content: center; gap: 2rem; }
+        }
+
+        @media (min-width: 768px) {
+            :root { --gutter: 2rem; }
+            .section { padding: 5rem 0; }
+            .hero { padding: 5rem 0 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo mono-bold">SXSW <span>CHEF</span> BRUNCH</div>
+            <nav>
+                <a href="#contact" class="cta-btn">Let's Partner</a>
+            </nav>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    PRESENTED BY<span>SXSW Chef</span>
+                </div>
+                <div class="hero-meta-item">
+                    LOCATION<span>East End Ballroom, Austin TX</span>
+                </div>
+                <div class="hero-meta-item">
+                    DATE<span>Saturday, March 14, 2026</span>
+                </div>
+                <div class="hero-meta-item">
+                    TIME<span>10:00 AM - 2:00 PM</span>
+                </div>
+            </div>
+            
+            <h1>SXSW's Most Story-Worthy <span class="serif-italic" style="color:#C4501C !important;">Brunch</span> Activation</h1>
+            <p class="hero-tagline mono-bold">/ NEXT LEVEL CHEF × SXSW 2026 / OPEN FIRE BRUNCH</p>
+            <p class="hero-desc">10+ chefs from Gordon Ramsay's Next Level Chef take over the East End Ballroom for a competitive open-fire cooking brunch. Teams of NLC chefs go head to head, cooking live over open flame in front of a packed SXSW crowd. Real competition. Real fire. Real food. The kind of Saturday morning people do not forget.</p>
+            
+            <div class="hero-quote">
+                "Open fire, competitive cooking, and a room full of people who showed up hungry. This is what brunch was supposed to be."
+            </div>
+        </section>
+
+        <!-- The Event -->
+        <section class="section">
+            <h2 class="section-title reveal" style="margin-bottom: 0.5rem;">The <span class="serif-italic" style="color:#C4501C !important;">Event</span></h2>
+            <p class="reveal stagger-1" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 2rem; letter-spacing: 1px;">SATURDAY, MARCH 14 / EAST END BALLROOM / 10 AM - 2 PM</p>
+
+            <div class="event-flow">
+                <div class="event-block reveal-left">
+                    <span class="event-time mono-bold">The Showcase</span>
+                    <h3>Open-Fire Team Plates</h3>
+                    <p>NLC chefs split into small teams, each building a signature brunch dish over live fire.</p>
+                    <ul class="event-detail-list">
+                        <li>Teams of 2-3 chefs each create a unique dish cooked over open flame</li>
+                        <li>4-5 custom small plates served to attendees throughout the event</li>
+                        <li>Simple, bold cooking using plancha, pizza oven, and open fire setups</li>
+                        <li>Guests eat, watch, and engage with the chefs as they cook</li>
+                    </ul>
+                </div>
+                <div class="event-block featured reveal-right">
+                    <span class="event-time mono-bold">The Competition</span>
+                    <h3>Live Cook-Off</h3>
+                    <p>A competitive cooking challenge between NLC cast teams, judged by the crowd.</p>
+                    <ul class="event-detail-list">
+                        <li>NLC chefs compete in teams over open fire with a timed challenge format</li>
+                        <li>Crowd-judged rounds with real stakes and real energy</li>
+                        <li>Finished dishes distributed to attendees as they are plated</li>
+                        <li>High-content format designed for social virality and audience participation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Sponsors Win -->
+        <section class="section">
+            <h2 class="section-title reveal" style="margin-bottom: 2rem;">Why Sponsors <span class="serif-italic" style="color:#C4501C !important;">Win</span> Here</h2>
+            
+            <div class="grid-section">
+                <div class="card reveal stagger-1">
+                    <span class="card-number mono-bold">01</span>
+                    <h3>Open Fire is the Content</h3>
+                    <p>Flames, smoke, sizzling planchas, chefs working fast. Open-fire cooking is inherently visual. Every frame looks incredible and every clip performs on social.</p>
+                </div>
+                <div class="card reveal stagger-2">
+                    <span class="card-number mono-bold">02</span>
+                    <h3>Product on the Plate</h3>
+                    <p>Your product is the canvas for 10+ professional chefs cooking live. No forced branding. The integration is organic because the food IS the activation.</p>
+                </div>
+                <div class="card reveal stagger-3">
+                    <span class="card-number mono-bold">03</span>
+                    <h3>Competition Drives Attention</h3>
+                    <p>The cook-off format keeps the crowd locked in. People stick around, pull out their phones, and share what they are watching. That is sustained attention on your brand.</p>
+                </div>
+                <div class="card reveal stagger-4">
+                    <span class="card-number mono-bold">04</span>
+                    <h3>Saturday at SXSW</h3>
+                    <p>Saturday is peak energy at South by Southwest. The streets are packed, the crowds are hungry, and a brunch activation with live fire and TV chefs is exactly what people are looking for.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chef Roster -->
+        <section class="section">
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 0.5rem;">The <span class="serif-italic" style="color:#C4501C !important;">Chefs</span> in the Room</h2>
+            <p class="reveal stagger-1" style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 2.5rem; letter-spacing: 1px;">CONTESTANTS FROM GORDON RAMSAY'S NEXT LEVEL CHEF / SEASON 5 ON FOX</p>
+
+            <div class="chef-grid">
+                <div class="chef-card reveal stagger-1">
+                    <div class="chef-info"><span class="chef-name">Tim Laielli</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/barefoodtim" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-1">
+                    <div class="chef-info"><span class="chef-name">Landon Bridges</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/imlandn" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-1">
+                    <div class="chef-info">
+                        <span class="chef-name">Jared Veldheer</span>
+                        <span class="chef-tag">12-Year NFL Veteran</span>
+                    </div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/jaredv68" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-2">
+                    <div class="chef-info"><span class="chef-name">Connor Caine</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/connor_caine" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-2">
+                    <div class="chef-info"><span class="chef-name">Christian Alquiza</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/illsqueezeya" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-2">
+                    <div class="chef-info"><span class="chef-name">Trinidad "Machete" Gonzalez</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/realchefmachete" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-3">
+                    <div class="chef-info"><span class="chef-name">Elise Jesse</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/ejscookin" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-3">
+                    <div class="chef-info"><span class="chef-name">Nicole "Cole" Lawson</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/chefcolelawson" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-3">
+                    <div class="chef-info"><span class="chef-name">Gabrielle Coniglio</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/chefgabrelle" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-4">
+                    <div class="chef-info"><span class="chef-name">Kevin Hill</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/flynerd" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-4">
+                    <div class="chef-info"><span class="chef-name">Belinda Vu</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/eatsbybeela" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-4">
+                    <div class="chef-info"><span class="chef-name">Amber Nichole Kellehan</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/amberkellehan" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+                <div class="chef-card reveal stagger-5">
+                    <div class="chef-info"><span class="chef-name">Emerson Bartolome</span></div>
+                    <div class="chef-socials">
+                        <a href="https://instagram.com/emersonbartolome" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Break -->
+        <div class="visual-break">
+            <h2 class="reveal">Partnership <span class="serif-italic" style="color:#FFFFFF !important;">Options</span></h2>
+            <p class="mono-bold reveal stagger-1">TWO WAYS TO BE PART OF THE FIRE</p>
+        </div>
+
+        <!-- Partnership Options -->
+        <section class="section" id="options">
+            <p class="reveal" style="font-size: 0.9rem; color: var(--text-secondary); max-width: 650px; margin-bottom: 2.5rem;">We have two partnership tiers available. Both put your brand in front of a live SXSW crowd and a combined social audience of 8.5M+ followers. The naming option puts your brand on the event itself.</p>
+            
+            <div class="event-flow">
+                <div class="event-block reveal-left">
+                    <span class="event-time mono-bold">Option 1</span>
+                    <h3>Product Partner</h3>
+                    <p>Your product on the fire. Your brand in the content. $2,000 - $4,000.</p>
+                    <ul class="event-detail-list">
+                        <li>Product featured across the open-fire cook-off and team showcase plates</li>
+                        <li>Verbal acknowledgment during the live competition</li>
+                        <li>Product in all food content capture (cooking, plating, crowd reactions)</li>
+                        <li>Guaranteed Instagram Story coverage from the event</li>
+                        <li>Organic content from NLC cast members cooking with your product</li>
+                    </ul>
+                </div>
+                <div class="event-block featured reveal-right">
+                    <span class="event-time mono-bold">Option 2 / Recommended</span>
+                    <h3>Naming Sponsor + Product</h3>
+                    <p>Your name on the activation. Your product on every plate. $5,000 - $8,000.</p>
+                    <ul class="event-detail-list">
+                        <li>Everything in the Product Partner tier, plus:</li>
+                        <li>Event co-branded with your name (e.g. "The [Brand] Open Fire Brunch")</li>
+                        <li>Branding on step-and-repeat banner and all on-site signage</li>
+                        <li>Logo on all digital flyers and social promotion leading up to the event</li>
+                        <li>Priority branding during the live competition rounds</li>
+                        <li>30-day content usage rights for your brand channels</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box reveal stagger-3">
+                <h3>Why This is Underpriced</h3>
+                <p>For $2k - $8k, your brand gets category-exclusive positioning at the most visually compelling brunch activation at SXSW. 10+ chefs from a nationally televised show cooking with your product over open fire, in front of a live crowd, with a combined social reach of 8.5M+ followers. Comparable SXSW activations start at $25k+ for a fraction of this audience quality and content output.</p>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="section">
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 2rem;">The <span class="serif-italic" style="color:#C4501C !important;">Numbers</span></h2>
+            
+            <div class="stat-row">
+                <div class="stat-item reveal stagger-1">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">NLC Chefs</span>
+                </div>
+                <div class="stat-item reveal stagger-2">
+                    <span class="stat-number">4 Hrs</span>
+                    <span class="stat-label">Live Activation</span>
+                </div>
+                <div class="stat-item reveal stagger-3">
+                    <span class="stat-number">8.5M+</span>
+                    <span class="stat-label">Combined Followers</span>
+                </div>
+                <div class="stat-item reveal stagger-4">
+                    <span class="stat-number">500k+</span>
+                    <span class="stat-label">Est. Impressions</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="reveal">
+            <p class="footer-label mono-bold">NEXT STEP</p>
+            <a href="mailto:sam@crowdworkmedia.com" class="footer-cta">Let's get your brand on the fire →</a>
+            
+            <div class="contact-block">
+                <a href="mailto:sam@crowdworkmedia.com" class="contact-item">sam@crowdworkmedia.com</a>
+                <a href="tel:+16163153975" class="contact-item">616-315-3975</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <span>© 2026 SXSW CHEF</span>
+                <span>NLC × SXSW 2026 / SATURDAY BRUNCH SPONSORSHIP</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const num = entry.target.querySelector('.stat-number');
+                    if (num) num.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
